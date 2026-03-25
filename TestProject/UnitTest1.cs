@@ -17,7 +17,7 @@ namespace TestProject
         {
             _program = new WordCountMain();
 
-            var filePath = Path.Combine("..", "..", "..", "..", "..", "..", "..", "..", "text.txt");
+            var filePath = Path.Combine("..", "..", "..", "..", "text.txt");
 
 
             if (!File.Exists(filePath))
@@ -51,7 +51,7 @@ namespace TestProject
         [Test]
         public void Test_She()
         {
-            var expected = WordCount_IndexOf(_text, He);
+            var expected = WordCount_IndexOf(_text, She);
             Assert.Multiple(() =>
             {
                 Assert.That(_program.WordCount_Linq(_text, She), Is.EqualTo(expected), "Linq");
@@ -60,9 +60,10 @@ namespace TestProject
               
             });
         }
+        [Test]
         public void Test_They()
         {
-            var expected = WordCount_IndexOf(_text, He);
+            var expected = WordCount_IndexOf(_text, They);
             Assert.Multiple(() =>
             {
                 Assert.That(_program.WordCount_Linq(_text, They), Is.EqualTo(expected), "Linq");
