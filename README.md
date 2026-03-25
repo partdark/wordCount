@@ -36,5 +36,5 @@
 - Файл `text.txt` в корне решения с исходными данными
 ## Сравнение производительности
 Для сравнения производительности использовалась библиотека **BenchmarkDotNet**.
-![Иллюстрация к проекту](https://github.com/partdark/wordCount/blob/master/tests.png)
+![Иллюстрация к проекту](https://raw.githubusercontent.com/partdark/wordCount/refs/heads/master/tests.png)
 
