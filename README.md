@@ -37,4 +37,4 @@
 ## Сравнение производительности
 
 Для сравнения производительности использовалась библиотека **BenchmarkDotNet**.
-![Иллюстрация к проекту](https://https://github.com/partdark/wordCount/blob/master/tests.png)
+![Иллюстрация к проекту](https://github.com/partdark/wordCount/blob/master/tests.png)
