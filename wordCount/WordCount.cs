@@ -7,6 +7,7 @@ namespace WordCount
 {
     public class WordCountMain
     {
+         string[]? sortedText = null;
 
         public static char[] Separators = {
     ' ', '\t', '\n', '\r',
@@ -73,28 +74,30 @@ namespace WordCount
 
         public  long WordCount_Binary(string[] text, string word)
         {
-            var splitedText = text
-         .SelectMany(t => t.Split(Separators, StringSplitOptions.RemoveEmptyEntries))
-         .ToArray();
-            Array.Sort(splitedText, StringComparer.OrdinalIgnoreCase);
-
+            if (sortedText == null)
+            {
+                sortedText = text
+             .SelectMany(t => t.Split(Separators, StringSplitOptions.RemoveEmptyEntries))
+             .ToArray();
+                Array.Sort(sortedText, StringComparer.OrdinalIgnoreCase);
+            }
 
 
             var count = 0L;
-            var index = Array.BinarySearch(splitedText, word, StringComparer.OrdinalIgnoreCase);
+            var index = Array.BinarySearch(sortedText, word, StringComparer.OrdinalIgnoreCase);
             if (index < 0)
             {
                 return count;
             }
             count++;
             var left = index - 1;
-            while (left >= 0 && String.Equals(splitedText[left], word, StringComparison.OrdinalIgnoreCase))
+            while (left >= 0 && String.Equals(sortedText[left], word, StringComparison.OrdinalIgnoreCase))
             {
                 count++;
                 left--;
             }
             var right = index + 1;
-            while (right < splitedText.Length && String.Equals(splitedText[right], word, StringComparison.OrdinalIgnoreCase))
+            while (right < sortedText.Length && String.Equals(sortedText[right], word, StringComparison.OrdinalIgnoreCase))
             {
                 count++;
                 right++;
